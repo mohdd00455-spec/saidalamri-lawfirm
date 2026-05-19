@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شركة سعيد العامري للمحاماة</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --navy: #0d1f3c;
+            --navy-mid: #162d52;
+            --navy-light: #1e3d6e;
+            --gold: #c9a84e;
+            --gold-light: #e8c97e;
+            --gold-pale: #f5e9c8;
+            --cream: #faf8f3;
+            --white: #ffffff;
+            --gray: #8a8a8a;
+            --text: #2a2a2a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--cream);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* ─── ORNAMENTAL PATTERNS ─── */
+        .geo-bg {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.025;
+            background-image:
+                repeating-linear-gradient(45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%),
+                repeating-linear-gradient(-45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%);
+            background-size: 40px 40px;
+        }
+
+        /* ─── HEADER ─── */
+        .header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #0a1628 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .header-ornament {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(201,168,78,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 50%, rgba(201,168,78,0.05) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .header-inner {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-block {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .logo-emblem {
+            width: 64px;
+            height: 64px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(201,168,78,0.1);
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .logo-emblem::before {
+            content: '';
+            position: absolute;
+            inset: 4px;
+            border-radius: 50%;
+            border: 1px solid rgba(201,168,78,0.3);
+        }
+
+        .logo-emblem i {
+            font-size: 26px;
+            color: var(--gold);
+        }
+
+        .logo-text h1 {
+            font-family: 'Amiri', serif;
+            font-size: 22px;
+            color: var(--white);
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            line-height: 1.3;
+        }
+
+        .logo-text p {
+            font-size: 12px;
+            color: var(--gold);
+            font-weight: 300;
+            margin-top: 2px;
+            letter-spacing: 0.04em;
+        }
+
+        .header-domain {
+            font-size: 13px;
+            color: rgba(201,168,78,0.7);
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            direction: ltr;
+        }
+
+        /* ─── GOLD DIVIDER ─── */
+        .gold-rule {
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+        }
+
+        /* ─── NAV ─── */
+        .nav {
+            background: var(--navy-mid);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .nav a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 18px 36px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            transition: color 0.3s;
+            letter-spacing: 0.03em;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0; left: 0;
+            height: 3px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .nav a:hover, .nav a.active {
+            color: var(--gold);
+        }
+
+        .nav a:hover::after, .nav a.active::after {
+            transform: scaleX(1);
+        }
+
+        .nav-sep {
+            width: 1px;
+            height: 24px;
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* ─── MAIN CONTAINER ─── */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page { display: none; animation: fadeIn 0.5s ease; }
+        .page.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ─── SECTION TITLES ─── */
+        .section-title {
+            font-family: 'Amiri', serif;
+            font-size: 36px;
+            color: var(--navy);
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 18px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+        }
+
+        /* ─── HOME PAGE ─── */
+        .hero {
+            text-align: center;
+            padding: 60px 20px 40px;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gold-pale);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 600;
+            padding: 6px 20px;
+            border-radius: 20px;
+            margin-bottom: 28px;
+            letter-spacing: 0.04em;
+        }
+
+        .hero h2 {
+            font-family: 'Amiri', serif;
+            color: var(--navy);
+            font-size: 44px;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .hero p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: var(--gray);
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        /* ─── ABOUT BOX ─── */
+        .about-company {
+            background: var(--white);
+            padding: 40px 44px;
+            border-radius: 4px;
+            margin-top: 50px;
+            border-right: 4px solid var(--gold);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-company::before {
+            content: '\f521';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 30px;
+            top: 20px;
+            font-size: 100px;
+            color: rgba(201,168,78,0.06);
+        }
+
+        .about-company h3 {
+            font-family: 'Amiri', serif;
+            color: var(--navy);
+            font-size: 26px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .about-company h3 i {
+            color: var(--gold);
+            font-size: 20px;
+        }
+
+        .about-company p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.85;
+            margin-bottom: 14px;
+        }
+
+        /* ─── COVERAGE BOX ─── */
+        .coverage-box {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 40px;
+            border-radius: 4px;
+            margin-top: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .coverage-box::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(201,168,78,0.1) 0%, transparent 70%);
+        }
+
+        .coverage-box h3 {
+            font-family: 'Amiri', serif;
+            color: var(--gold);
+            font-size: 26px;
+            margin-bottom: 14px;
+            position: relative;
+        }
+
+        .coverage-box p {
+            color: rgba(255,255,255,0.75);
+            font-size: 16px;
+            line-height: 1.8;
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ─── TEAM ─── */
+        .team-section { margin-top: 60px; }
+
+        .team-title {
+            font-family: 'Amiri', serif;
+            color: var(--navy);
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .team-subtitle {
+            text-align: center;
+            color: var(--gray);
+            font-size: 15px;
+            margin-bottom: 36px;
+        }
+
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+
+        .team-member {
+            background: var(--white);
+            padding: 30px 16px;
+            border-radius: 4px;
+            text-align: center;
+            border-top: 3px solid var(--gold);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .team-member:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+        }
+
+        .member-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--navy), var(--navy-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            border: 2px solid var(--gold-pale);
+        }
+
+        .member-avatar i {
+            font-size: 28px;
+            color: var(--gold);
+        }
+
+        .team-member h4 {
+            font-family: 'Amiri', serif;
+            color: var(--navy);
+            font-size: 15px;
+            margin-bottom: 8px;
+            line-height: 1.5;
+            min-height: 46px;
+        }
+
+        .member-role {
+            display: inline-block;
+            background: var(--gold-pale);
+            color: #8a6a1a;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 12px;
+            margin-bottom: 6px;
+        }
+
+        .member-title {
+            color: var(--gray);
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        /* ─── SERVICES ─── */
+        .services-intro {
+            text-align: center;
+            color: var(--gray);
+            font-size: 17px;
+            margin-bottom: 40px;
+        }
+
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .service-item {
+            background: var(--white);
+            padding: 36px 28px;
+            border-radius: 4px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .service-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+            border-bottom-color: var(--gold);
+        }
+
+        .service-item::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--gold), transparent);
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--navy), var(--navy-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 22px;
+            position: relative;
+        }
+
+        .service-icon::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            border: 1px solid var(--gold-pale);
+        }
+
+        .service-icon i {
+            font-size: 26px;
+            color: var(--gold);
+        }
+
+        .service-item h3 {
+            font-family: 'Amiri', serif;
+            color: var(--navy);
+            font-size: 21px;
+            margin-bottom: 14px;
+        }
+
+        .service-item p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.75;
+        }
+
+        /* ─── CONTACT ─── */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 10px;
+        }
+
+        .contact-cards { display: flex; flex-direction: column; gap: 16px; }
+
+        .contact-item {
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 0;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: transform 0.2s;
+        }
+
+        .contact-item:hover { transform: translateX(-4px); }
+
+        .contact-icon-wrap {
+            background: linear-gradient(135deg, var(--navy), var(--navy-light));
+            width: 64px;
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-icon-wrap i {
+            font-size: 22px;
+            color: var(--gold);
+        }
+
+        .contact-body {
+            padding: 18px 22px;
+            flex: 1;
+        }
+
+        .contact-body h4 {
+            color: var(--gray);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 5px;
+        }
+
+        .contact-body p {
+            color: var(--navy);
+            font-size: 18px;
+            font-weight: 700;
+            direction: ltr;
+            text-align: right;
+            margin-bottom: 3px;
+        }
+
+        .contact-body .contact-name {
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* ─── ADDRESS + MAP ─── */
+        .address-map { display: flex; flex-direction: column; gap: 20px; }
+
+        .address-box {
+            background: var(--white);
+            padding: 30px 28px;
+            border-radius: 4px;
+            border-right: 4px solid var(--gold);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .address-box h3 {
+            font-family: 'Amiri', serif;
+            color: var(--navy);
+            font-size: 22px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .address-box h3 i { color: var(--gold); }
+
+        .address-box p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .email-box {
+            background: linear-gradient(135deg, var(--navy), var(--navy-light));
+            padding: 30px 28px;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .email-box::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 80% 50%, rgba(201,168,78,0.1) 0%, transparent 70%);
+        }
+
+        .email-box h3 {
+            font-family: 'Amiri', serif;
+            color: var(--gold);
+            font-size: 20px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .email-box p {
+            color: rgba(255,255,255,0.85);
+            font-size: 16px;
+            direction: ltr;
+            text-align: right;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .map-box {
+            background: var(--white);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            flex: 1;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 12px;
+            border: 2px dashed var(--gold-pale);
+            color: var(--navy);
+            text-align: center;
+            padding: 30px;
+        }
+
+        .map-box i { font-size: 44px; color: var(--gold); }
+        .map-box p { font-size: 16px; font-weight: 600; }
+        .map-box small { color: var(--gray); font-size: 13px; direction: ltr; }
+
+        /* ─── FOOTER ─── */
+        .footer {
+            background: var(--navy);
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 30% 50%, rgba(201,168,78,0.06) 0%, transparent 60%);
+        }
+
+        .footer-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 40px 30px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Amiri', serif;
+            color: var(--white);
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.5);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .footer-brand .domain {
+            color: var(--gold);
+            font-size: 14px;
+            direction: ltr;
+            display: inline-block;
+            margin-top: 6px;
+        }
+
+        .footer-contact { text-align: center; }
+
+        .footer-contact p {
+            color: rgba(255,255,255,0.6);
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            text-align: center;
+            padding: 20px 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-bottom p {
+            color: rgba(255,255,255,0.3);
+            font-size: 13px;
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 1100px) {
+            .team-members { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (max-width: 900px) {
+            .services-list { grid-template-columns: repeat(2, 1fr); }
+            .contact-grid { grid-template-columns: 1fr; }
+            .header-inner { padding: 16px 24px; }
+            .container { padding: 40px 20px; }
+        }
+
+        @media (max-width: 700px) {
+            .team-members { grid-template-columns: repeat(2, 1fr); }
+            .services-list { grid-template-columns: 1fr; }
+            .hero h2 { font-size: 30px; }
+            .nav a { padding: 14px 16px; font-size: 14px; }
+        }
+
+        @media (max-width: 500px) {
+            .team-members { grid-template-columns: 1fr; }
+            .footer-inner { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="geo-bg"></div>
+
+<!-- ═══ HEADER ═══ -->
+<div class="header">
+    <div class="header-ornament"></div>
+    <div class="header-inner">
+        <div class="logo-block">
+            <div class="logo-emblem">
+                <i class="fas fa-balance-scale"></i>
+            </div>
+            <div class="logo-text">
+                <h1>شركة سعيد العامري للمحاماة</h1>
+                <p>مكتب محاماة معتمد · مسقط، سلطنة عُمان</p>
+            </div>
+        </div>
+        <div class="header-domain">www.saidalamri.lawfirm.com</div>
+    </div>
+</div>
+<div class="gold-rule"></div>
+
+<!-- ═══ NAV ═══ -->
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="#" class="active" onclick="showPage('home', this)">
+            <i class="fas fa-home"></i> الرئيسية
+        </a>
+        <div class="nav-sep"></div>
+        <a href="#" onclick="showPage('services', this)">
+            <i class="fas fa-gavel"></i> الخدمات القانونية
+        </a>
+        <div class="nav-sep"></div>
+        <a href="#" onclick="showPage('contact', this)">
+            <i class="fas fa-envelope"></i> التواصل والموقع
+        </a>
+    </div>
+</nav>
+
+<!-- ═══ MAIN ═══ -->
+<div class="container">
+
+    <!-- ─ HOME ─ -->
+    <div id="home" class="page active">
+        <div class="hero">
+            <div class="hero-badge"><i class="fas fa-star"></i> مكتب محاماة معتمد ذو خبرة</div>
+            <h2>مرحباً بكم في شركة سعيد العامري للمحاماة</h2>
+            <p>نقدم خدمات قانونية متكاملة للأفراد والشركات باحترافية عالية، مع الالتزام الكامل بمعايير السرية والموثوقية في جميع الجوانب القانونية.</p>
+        </div>
+
+        <div class="about-company">
+            <h3><i class="fas fa-landmark"></i> عن شركة سعيد العامري للمحاماة</h3>
+            <p>نحن مكتب محاماة متخصص نقدم خدمات قانونية شاملة للأفراد والشركات. يتميز فريق عملنا بالخبرة الواسعة في مختلف التخصصات القانونية والقدرة على تقديم الحلول القانونية المناسبة لكل حالة.</p>
+            <p>نسعى دائماً لتحقيق العدالة وحماية حقوق عملائنا من خلال تقديم استشارات قانونية متميزة وتمثيل فعّال أمام المحاكم والجهات القضائية المختلفة.</p>
+            <p>نؤمن بأهمية الثقة والسرية في علاقتنا مع عملائنا، ونحرص على تقديم خدمات قانونية تتسم بالدقة والاحترافية.</p>
+        </div>
+
+        <div class="coverage-box">
+            <h3><i class="fas fa-shield-alt"></i> مجالات التغطية القانونية</h3>
+            <p>تغطي شركة سعيد العامري للمحاماة جميع الجوانب القانونية بشكل شامل ومتكامل، مما يمكننا من تقديم حلول قانونية تلبي جميع احتياجات عملائنا في عُمان.</p>
+        </div>
+
+        <div class="team-section">
+            <h3 class="team-title">فريق العمل</h3>
+            <p class="team-subtitle">نخبة من المحامين والإداريين المتخصصين</p>
+            <div class="team-members">
+                <div class="team-member">
+                    <div class="member-avatar"><i class="fas fa-user-tie"></i></div>
+                    <h4>سعيد بن خليفة العامري</h4>
+                    <span class="member-role">المحامي الرئيسي</span>
+                    <p class="member-title">المؤسس والمدير العام</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar"><i class="fas fa-user-tie"></i></div>
+                    <h4>نصرالله بن سيف العرفاتي</h4>
+                    <span class="member-role">المحامي الثاني</span>
+                    <p class="member-title">محامي متخصص في القضايا</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar"><i class="fas fa-user-cog"></i></div>
+                    <h4>عبدالله بن ناصر السيابي</h4>
+                    <span class="member-role">الإداري الأول</span>
+                    <p class="member-title">مدير العمليات والإدارة</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar"><i class="fas fa-user-cog"></i></div>
+                    <h4>ناصر بن سالم العامري</h4>
+                    <span class="member-role">الإداري الثاني</span>
+                    <p class="member-title">مدير العلاقات والتنسيق</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar"><i class="fas fa-user-cog"></i></div>
+                    <h4>عبدالرحمن بن عبدالله العنبوري</h4>
+                    <span class="member-role">الإداري الثالث</span>
+                    <p class="member-title">مدير المتابعة والإجراءات</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─ SERVICES ─ -->
+    <div id="services" class="page">
+        <h2 class="section-title">الخدمات القانونية</h2>
+        <p class="services-intro">نقدم مجموعة متكاملة من الخدمات القانونية الشاملة بأعلى مستويات الكفاءة والاحترافية</p>
+        <div class="services-list">
+            <div class="service-item">
+                <div class="service-icon"><i class="fas fa-comments"></i></div>
+                <h3>الاستشارات القانونية</h3>
+                <p>تقديم استشارات قانونية متخصصة في جميع المجالات، تحليل القضايا القانونية، وتقديم الحلول القانونية المناسبة لكل حالة.</p>
+            </div>
+            <div class="service-item">
+                <div class="service-icon"><i class="fas fa-file-contract"></i></div>
+                <h3>مراجعات قانونية</h3>
+                <p>مراجعة العقود والاتفاقيات والوثائق القانونية بدقة عالية، وتقديم النصائح والتعديلات اللازمة لحماية حقوق العميل.</p>
+            </div>
+            <div class="service-item">
+                <div class="service-icon"><i class="fas fa-gavel"></i></div>
+                <h3>التمثيل القانوني</h3>
+                <p>تمثيل العملاء أمام المحاكم والجهات القضائية والتحكيمية في جميع أنواع القضايا والدعاوى القانونية.</p>
+            </div>
+            <div class="service-item">
+                <div class="service-icon"><i class="fas fa-handshake"></i></div>
+                <h3>التسويات الودية</h3>
+                <p>التوسط لتسوية المنازعات ودياً خارج المحاكم، وإبرام اتفاقيات تسوية تحافظ على مصالح جميع الأطراف.</p>
+            </div>
+            <div class="service-item">
+                <div class="service-icon"><i class="fas fa-briefcase"></i></div>
+                <h3>خدمات الشركات</h3>
+                <p>تأسيس الشركات، الإجراءات النظامية، المراجعات الدورية، وحل النزاعات بين الشركاء والإدارات.</p>
+            </div>
+            <div class="service-item">
+                <div class="service-icon"><i class="fas fa-file-alt"></i></div>
+                <h3>صياغة المستندات</h3>
+                <p>صياغة العقود والاتفاقيات واللوائح التنظيمية والعقود الدولية باحترافية عالية وضمان الصحة القانونية.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─ CONTACT ─ -->
+    <div id="contact" class="page">
+        <h2 class="section-title">معلومات التواصل والموقع</h2>
+        <div class="contact-grid">
+            <div class="contact-cards">
+                <div class="contact-item">
+                    <div class="contact-icon-wrap"><i class="fas fa-phone"></i></div>
+                    <div class="contact-body">
+                        <h4>المحامي الرئيسي</h4>
+                        <p>99333932</p>
+                        <div class="contact-name">سعيد بن خليفة العامري</div>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon-wrap"><i class="fas fa-phone"></i></div>
+                    <div class="contact-body">
+                        <h4>الإداري - العلاقات والتنسيق</h4>
+                        <p>92303429</p>
+                        <div class="contact-name">ناصر بن سالم العامري</div>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon-wrap"><i class="fas fa-phone"></i></div>
+                    <div class="contact-body">
+                        <h4>الإداري - المتابعة والإجراءات</h4>
+                        <p>97100258</p>
+                        <div class="contact-name">عبدالرحمن العنبوري</div>
+                    </div>
+                </div>
+            </div>
+            <div class="address-map">
+                <div class="address-box">
+                    <h3><i class="fas fa-map-marker-alt"></i> عنوان المكتب</h3>
+                    <p>سلطنة عُمان · مسقط</p>
+                    <p>المعبيلة الجنوبية</p>
+                </div>
+                <div class="email-box">
+                    <h3><i class="fas fa-envelope"></i> البريد الإلكتروني</h3>
+                    <p>Saidalamri.Lawfirm@gmail.com</p>
+                </div>
+                <div class="map-box">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>مسقط - المعبيلة الجنوبية</p>
+                    <small>www.saidalamri.lawfirm.com</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<div class="footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <h3>شركة سعيد العامري للمحاماة</h3>
+            <p>سلطنة عُمان · مسقط · المعبيلة الجنوبية</p>
+            <span class="domain">www.saidalamri.lawfirm.com</span>
+        </div>
+        <div class="footer-contact">
+            <p><i class="fas fa-phone" style="color:var(--gold)"></i> 99333932</p>
+            <p><i class="fas fa-envelope" style="color:var(--gold)"></i> Saidalamri.Lawfirm@gmail.com</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>جميع الحقوق محفوظة © شركة سعيد العامري للمحاماة</p>
+    </div>
+</div>
+
+<script>
+    function showPage(pageId, link) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById(pageId).classList.add('active');
+        document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
+        if (link) link.classList.add('active');
+        return false;
+    }
+</script>
+</body>
+</html>
